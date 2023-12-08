@@ -1,14 +1,14 @@
-function getTextareaValue(){
-    var parameter = document.getElementById('url').value;
+function getInput(){
+    var parameter = document.getElementById('name').value;
     get(parameter);
 };
 
 function get(parameter){
     $.ajax({
         type: 'GET',
-        url: '/tangdouz/dy.php?lj=' + parameter + '&return=json',
+        url: '/oi/API/QQ_Music/?msg=' + parameter,
         success: function(data){
-            alert('解析完成！视频直链：' + data.url);
+            alert(data.data[0].url);
         }
     });
 };
