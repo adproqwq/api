@@ -38,7 +38,14 @@ function getSongList(parameter){
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
             };
-            document.querySelector('tbody').innerHTML = eachSongDetails;
+            var songList = document.querySelector('tbody');
+            songList.innerHTML = eachSongDetails;
+            songList.addEventListener('click',function(e){
+                if(e.target.getAttribute('name') == 'download'){
+                    var index = String(Number(e.target.getAttribute('index')) + 1);
+                    download(index);
+                }
+            });
         }
     );
 };
@@ -50,11 +57,3 @@ function download(index){
         window.open(songData.music);
     });
 };
-
-var songList = document.querySelector('tbody');
-songList.addEventListener('click',function(e){
-    if(e.target.getAttribute('name') == 'download'){
-        var index = String(Number(e.target.getAttribute('index')) + 1);
-        download(index);
-    }
-});
