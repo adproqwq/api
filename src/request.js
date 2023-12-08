@@ -24,7 +24,7 @@ function getSongList(parameter){
             document.getElementById('songList').innerHTML = initTable;
             for(var i in songData){
                 for(var j in songData[i].singers){
-                    var songSingers;
+                    var songSingers = '';
                     songSingers += songData[i].singers[j] + '，';
                 }
                 var eachSongDetails;
