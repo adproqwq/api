@@ -4,8 +4,8 @@ function getInput(){
 };
 
 function get(parameter){
-    axios('/oi/API/QQ_Music/?msg=' + parameter)
-    .then(data => {
+    axios.get('/oi/API/QQ_Music/?msg=' + parameter)
+    .then(function(data){
             alert(data);
         }
     );
