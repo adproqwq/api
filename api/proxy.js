@@ -11,11 +11,11 @@ module.exports = (req, res) => {
         target,
         changeOrigin: true,
         pathRewrite: {
-            // 通过路径重写，去除请求路径中的 `/api`
+            // 通过路径重写，去除请求路径中的 `/tangdouz`
             '^/tangdouz/': '/'
         },
         headers: {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36 Edg/120.0.0.0'
-        },
+        }
     })(req, res)
 }
