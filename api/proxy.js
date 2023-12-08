@@ -5,7 +5,9 @@ const {
 module.exports = (req, res) => {
     let target = ''
     // 代理目标地址
-    target = 'http://api.tangdouz.com'
+    if (req.url.startsWith('/tangdouz')) {
+        target = 'http://api.tangdouz.com'
+    }
     // 创建代理对象并转发请求
     createProxyMiddleware({
         target,
