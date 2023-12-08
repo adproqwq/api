@@ -1,7 +1,7 @@
 {
     "rewrites": [
         {
-            "source": "/tangdouz/(.*)",
+            "source": "/oi/(.*)",
             "destination": "api/proxy"
         }
     ]
