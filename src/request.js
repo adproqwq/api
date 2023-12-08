@@ -6,7 +6,7 @@ function getInput(){
 function get(parameter){
     axios('/oi/API/QQ_Music/?msg=' + parameter)
     .then(data => {
-            alert(data.message);
+            alert(message);
         }
     );
 };
