@@ -6,7 +6,7 @@ function getTextareaValue(){
 function get(parameter){
     $.ajax({
         type: 'GET',
-        url: 'tangdouz/dy.php?lj=' + parameter + '&return=json',
+        url: '/tangdouz/dy.php?lj=' + parameter + '&return=json',
         success: function(data){
             alert('解析完成！视频直链：' + data.url);
         }
