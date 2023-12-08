@@ -23,17 +23,17 @@ function getSongList(parameter){
             </table>`;
             document.getElementById('songList').innerHTML = initTable;
             for(var i in songData){
-                for(var j in songData.singers){
+                for(var j in songData[i].singers){
                     var songSingers;
                     songSingers += songData[i].singers[j] + '，';
                 }
                 var eachSongDetails;
                 eachSongDetails += `
                 <tr>
-                    <td><img src="${songData[i].picture}"></td>
+                    <td><img src="${songData[i].picture}" height="100" weight="100"></td>
                     <td>${songSingers}"</td>
                     <td>${songData[i].album}"</td>
-                    <td>${songData[i].song}></td>
+                    <td>${songData[i].song}</td>
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
             };
