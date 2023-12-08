@@ -23,8 +23,9 @@ function getSongList(parameter){
             </table>`;
             document.getElementById('songList').innerHTML = initTable;
             for(var i in songData){
+                var songSingers;
+                songSingers = '';
                 for(var j in songData[i].singers){
-                    var songSingers = '';
                     songSingers += songData[i].singers[j] + '，';
                 }
                 var eachSongDetails;
@@ -36,7 +37,6 @@ function getSongList(parameter){
                     <td>${songData[i].song}</td>
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
-                songSingers = '';
             };
             document.querySelector('tbody').innerHTML = eachSongDetails;
         }
