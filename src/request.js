@@ -7,7 +7,7 @@ function getSongList(parameter){
     axios.get('/oi/API/QQ_Music/?msg=' + parameter)
     .then(function(data){
             var songData = data.data.data;
-            console.log(songData);
+            //console.log(songData);
             initTable = `
             <table border="1">
                 <thead>
@@ -38,6 +38,7 @@ function getSongList(parameter){
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
             };
+            console.log(eachSongDetails);
             var songList = document.querySelector('tbody');
             songList.innerHTML = eachSongDetails;
             songList.addEventListener('click',function(e){
