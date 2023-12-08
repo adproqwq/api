@@ -21,13 +21,13 @@ function getSongList(parameter){
                 <tbody></tbody>
             </table>`;
             document.getElementById('songList').innerHTML = initTable;
+            var eachSongDetails = '';
             for(var i in songData){
                 var songSingers;
                 songSingers = '';
                 for(var j in songData[i].singers){
                     songSingers += songData[i].singers[j] + '，';
                 }
-                var eachSongDetails = '';
                 eachSongDetails += `
                 <tr>
                     <td><img src="${songData[i].picture}" height="100" weight="100"></td>
