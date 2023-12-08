@@ -1,5 +1,3 @@
-import axios from "axios";
-
 function getInput(){
     var parameter = document.getElementById('name').value;
     get(parameter);
