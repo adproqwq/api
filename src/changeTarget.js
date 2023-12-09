@@ -4,6 +4,5 @@ document.getElementById("searchTarget").addEventListener("change",function(e){
         var index = userselect.selectedIndex;
         document.getElementById('import').src = './src/' + userselect.options[index].value + '.js';
         document.body.appendChild(document.getElementById('import'));
-        document.body.appendChild('<script src="./src/changeTarget.js"></script>');
     };
 });
