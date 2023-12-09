@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="./style/index.css">
     </head>
     <body>
-        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <label>选择搜索平台：</label>
         <select id="searchTarget">
             <option selected disabled hidden>请选择搜索平台...</option>
@@ -21,7 +20,7 @@
             <button type="submit" class="btn boom" onclick="getInput();">确定</button>
         </div>
         <div id="songList"></div>
-        <script id="import"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script id="changeTarget" src="./src/changeTarget.js"></script>
     </body>
-    <script src="./src/changeTarget.js"></script>
 </html>
