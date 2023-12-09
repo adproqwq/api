@@ -6,6 +6,7 @@ function getInput(){
 function getSongList(parameter){
     axios.get('/oi/API/QQ_Music/?msg=' + parameter)
     .then(function(data){
+        if(data.data.code == '1'){
             var songData = data.data.data;
             initTable = `
             <table border="1">
@@ -46,14 +47,22 @@ function getSongList(parameter){
                 }
             });
         }
-    );
+        else{
+            alert('搜索失败，换个关键词试试');
+        };
+    });
 };
 
 function download(index){
     let downloadPage = window.open('','_blank');
     axios.get('/oi/API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
-        var songData = data.data.data;
-        downloadPage.location = songData.music;
+        if(data.data.code == '1'){
+            var songData = data.data.data;
+            downloadPage.location = songData.music;
+        }
+        else{
+            downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
+        };
     });
 };
