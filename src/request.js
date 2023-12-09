@@ -50,9 +50,10 @@ function getSongList(parameter){
 };
 
 function download(index){
+    let downloadPage = window.open('','_blank');
     axios.get('/oi/API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
         var songData = data.data.data;
-        window.open(songData.music);
+        downloadPage.location = songData.music;
     });
 };
