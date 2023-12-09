@@ -3,17 +3,23 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no"/>
-        <title>解析小站</title>
+        <title>聚合音乐搜索</title>
         <link rel="stylesheet" href="./style/index.css">
     </head>
     <body>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-        <label for="name">QQ音乐</label>
+        <label>选择搜索平台：</label>
+        <select id="searchTarget">
+            <option disabled="disabled">请选择搜索平台...</option>
+            <option value="QQMusic">小Q</option>
+            <option value="netease">小云</option>
+        </select>
         <input id="name" placeholder="请输入歌名或歌手名"></textarea>
         <div>
             <button type="submit" class="btn boom" onclick="getInput();">确定</button>
         </div>
         <div id="songList"></div>
-        <script src="./src/request.js"></script>
+        <script id="import"></script>
+        <script src="./src/changeTarget.js"></script>
     </body>
 </html>

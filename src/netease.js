@@ -4,9 +4,9 @@ function getInput(){
 };
 
 function getSongList(parameter){
-    axios.get('/oi/API/QQ_Music/?msg=' + parameter)
+    axios.get('/oi/API/Music_163?name=' + parameter)
     .then(function(data){
-        if(data.data.code == '1'){
+        if(data.data.code == '0'){
             var songData = data.data.data;
             initTable = `
             <table border="1">
@@ -14,7 +14,6 @@ function getSongList(parameter){
                     <tr>
                         <th>封面图</th>
                         <th>歌手</th>
-                        <th>专辑</th>
                         <th>歌名</th>
                         <th>操作</th>
                     </tr>
@@ -27,14 +26,13 @@ function getSongList(parameter){
                 var songSingers;
                 songSingers = '';
                 for(var j in songData[i].singers){
-                    songSingers += songData[i].singers[j] + '，';
+                    songSingers += songData[i].singers[j].name + '，';
                 }
                 eachSongDetails += `
                 <tr>
-                    <td><img src="${songData[i].picture}" height="100" weight="100"></td>
+                    <td><img src="${songData[i].picurl}" height="100" weight="100"></td>
                     <td>${songSingers}</td>
-                    <td>${songData[i].album}</td>
-                    <td>${songData[i].song}</td>
+                    <td>${songData[i].name}</td>
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
             };
@@ -47,22 +45,18 @@ function getSongList(parameter){
                 }
             });
         }
-        else{
-            alert('搜索失败，换个关键词试试');
-        };
+        else alert('搜索失败，换个关键词试试');
     });
 };
 
 function download(index){
     let downloadPage = window.open('','_blank');
-    axios.get('/oi/API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
+    axios.get('/oi/API/Music_163?msg=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
-        if(data.data.code == '1'){
+        if(data.data.code == '0'){
             var songData = data.data.data;
-            downloadPage.location = songData.music;
+            downloadPage.location = songData.url;
         }
-        else{
-            downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
-        };
+        else downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
     });
 };
