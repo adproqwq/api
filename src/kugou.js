@@ -4,7 +4,7 @@ function getInput(){
 };
 
 function getSongList(parameter){
-    axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + parameter)
+    axios.get('/adpro/xingzhige//API/Kugou_GN_new/?name=' + parameter)
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;
@@ -48,7 +48,7 @@ function getSongList(parameter){
 
 function download(index){
     let downloadPage = window.open('','_blank');
-    axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + document.getElementById('name').value + '&n=' + index)
+    axios.get('/adpro/xingzhige//API/Kugou_GN_new/?name=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;
