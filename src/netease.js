@@ -4,7 +4,7 @@ function getInput(){
 };
 
 function getSongList(parameter){
-    axios.get('/oi/API/Music_163?name=' + parameter)
+    axios.get('/adpro/oi/API/Music_163?name=' + parameter)
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;
@@ -51,7 +51,7 @@ function getSongList(parameter){
 
 function download(index){
     let downloadPage = window.open('','_blank');
-    axios.get('/oi/API/Music_163?name=' + document.getElementById('name').value + '&n=' + index)
+    axios.get('/adpro/oi/API/Music_163?name=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;

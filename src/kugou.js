@@ -4,9 +4,9 @@ function getInput(){
 };
 
 function getSongList(parameter){
-    axios.get('/adpro/oi/API/QQ_Music/?msg=' + parameter)
+    axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + parameter)
     .then(function(data){
-        if(data.data.code == '1'){
+        if(data.data.code == '0'){
             var songData = data.data.data;
             initTable = `
             <table border="1">
@@ -24,17 +24,12 @@ function getSongList(parameter){
             document.getElementById('songList').innerHTML = initTable;
             var eachSongDetails = '';
             for(var i in songData){
-                var songSingers;
-                songSingers = '';
-                for(var j in songData[i].singers){
-                    songSingers += songData[i].singers[j] + '，';
-                }
                 eachSongDetails += `
                 <tr>
-                    <td><img src="${songData[i].picture}" height="100" weight="100"></td>
-                    <td>${songSingers}</td>
+                    <td><img src="${songData[i].cover}" height="100" weight="100"></td>
+                    <td>${songData[i].name}</td>
                     <td>${songData[i].album}</td>
-                    <td>${songData[i].song}</td>
+                    <td>${songData[i].songname}</td>
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
             };
@@ -53,11 +48,11 @@ function getSongList(parameter){
 
 function download(index){
     let downloadPage = window.open('','_blank');
-    axios.get('/adpro/oi/API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
+    axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
-        if(data.data.code == '1'){
+        if(data.data.code == '0'){
             var songData = data.data.data;
-            downloadPage.location = songData.music;
+            downloadPage.location = songData.songurl;
         }
         else downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
     });
