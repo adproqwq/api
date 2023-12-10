@@ -4,7 +4,7 @@ function getInput(){
 };
 
 function getSongList(parameter){
-    axios.get('/adpro/oi//API/QQ_Music/?msg=' + parameter)
+    axios.get('/adpro/oi/API/QQ_Music/?msg=' + parameter)
     .then(function(data){
         if(data.data.code == '1'){
             var songData = data.data.data;
@@ -53,7 +53,7 @@ function getSongList(parameter){
 
 function download(index){
     let downloadPage = window.open('','_blank');
-    axios.get('/adpro/oi//API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
+    axios.get('/adpro/oi/API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
         if(data.data.code == '1'){
             var songData = data.data.data;
