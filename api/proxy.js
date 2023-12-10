@@ -13,7 +13,7 @@ module.exports = (req, res) => {
         target,
         changeOrigin: true,
         pathRewrite: {
-            '^/adpro/*/': '/'
+            '^/adpro/(.*)/': '/'
         }
     })(req, res)
 }
