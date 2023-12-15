@@ -5,7 +5,7 @@ document.getElementById("searchTarget").addEventListener("change",function(e){
         if(document.getElementById(userselect.options[index].value)) document.body.removeChild(document.getElementById(userselect.options[index].value));
         var newScript = document.createElement('script');
         newScript.id = userselect.options[index].value;
-        newScript.src = './src/' + userselect.options[index].value + '.js';
+        newScript.src = './music/src/' + userselect.options[index].value + '.js';
         document.body.appendChild(newScript);
     };
 });
