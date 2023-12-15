@@ -5,8 +5,7 @@ function getInput(){
 };
 
 function getImage(parameter){
-    axios.get('/adpro/st/v2?r18=1&tag=' + parameter)
-    .then(function(data){
+    axios.get('/adpro/st/v2?r18=1&tag=' + parameter).then(function(data){
         var imageData = data.data.data;
         var showImage = `<img src=${imageData.urls.original} alt=${imageData.title}>`;
         document.getElementById('imageDisplay').innerHTML = showImage;
