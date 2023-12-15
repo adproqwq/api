@@ -1,6 +1,6 @@
 function getInput(){
     var parameter = document.getElementById('tag').value;
-    parameter.replace('&','&tag=');
+    parameter = parameter.replace('&','&tag=');
     getImage(parameter);
 };
 
