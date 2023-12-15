@@ -9,9 +9,6 @@ module.exports = (req, res) => {
     else if(req.url.startsWith('/adpro/xingzhige')){
         target = 'https://api.xingzhige.com'
     }
-    else if(req.url.startsWith('adpro/st')){
-        target = 'https://api.lolicon.app/setu'
-    }
     createProxyMiddleware({
         target,
         changeOrigin: true,
