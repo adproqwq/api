@@ -1,3 +1,5 @@
 axios.get('/adpro/ybapi/API/kfc.php').then(function(data){
-    document.getElementById('content').innerText = data.data;
+    var result = data.data;
+    result.replace(/\\n/,'<br>');
+    document.getElementById('content').innerHTML = result;
 });
