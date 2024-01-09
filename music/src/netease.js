@@ -4,7 +4,7 @@ function getInput(){
 };
 
 function getSongList(parameter){
-    axios.get('/adpro/oi/API/Music_163?name=' + parameter)
+    axios.get('/adpro/xingzhige/API/NetEase_CloudMusic_new?name=' + parameter)
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;
@@ -14,6 +14,7 @@ function getSongList(parameter){
                     <tr>
                         <th>封面图</th>
                         <th>歌手</th>
+                        <th>专辑</th>
                         <th>歌名</th>
                         <th>操作</th>
                     </tr>
@@ -23,16 +24,12 @@ function getSongList(parameter){
             document.getElementById('songList').innerHTML = initTable;
             var eachSongDetails = '';
             for(var i in songData){
-                var songSingers;
-                songSingers = '';
-                for(var j in songData[i].singers){
-                    songSingers += songData[i].singers[j].name + '，';
-                }
                 eachSongDetails += `
                 <tr>
-                    <td><img src="${songData[i].picurl}" height="100" weight="100"></td>
-                    <td>${songSingers}</td>
+                    <td><img src="${songData[i].cover}" height="100" weight="100"></td>
                     <td>${songData[i].name}</td>
+                    <td>${songData[i].album}</td>
+                    <td>${songData[i].songname}</td>
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
             };
@@ -51,7 +48,7 @@ function getSongList(parameter){
 
 function download(index){
     let downloadPage = window.open('','_blank');
-    axios.get('/adpro/oi/API/Music_163?name=' + document.getElementById('name').value + '&n=' + index)
+    axios.get('/adpro/xingzhige/API/NetEase_CloudMusic_new?name=' + document.getElementById('name').value + '&n=' + index)
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;
