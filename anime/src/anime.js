@@ -39,7 +39,7 @@ function getAnimeList(parameter){
                     var index = String(Number(e.target.getAttribute('index')) + 1);
                     localStorage.setItem('name',parameter);
                     localStorage.setItem('index',index);
-                    more();
+                    window.open('./anime/more.html');
                 }
             });
         }
@@ -48,7 +48,6 @@ function getAnimeList(parameter){
 };
 
 function more(){
-    window.open('./anime/more.html');
     let name = localStorage.getItem('name');
     let index = localStorage.getItem('index');
     axios.get(`/adpro/xingzhige/API/anime/?msg=${name}&n=${index}`).then(function(data){
