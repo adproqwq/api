@@ -52,7 +52,7 @@ function download(index){
     .then(function(data){
         if(data.data.code == '0'){
             var songData = data.data.data;
-            downloadPage.location = songData.url;
+            downloadPage.location = songData.src;
         }
         else downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
     });
