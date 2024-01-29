@@ -15,6 +15,7 @@ function getAnimeList(parameter){
                         <th>番名</th>
                         <th>状态</th>
                         <th>年份</th>
+                        <th>详情</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -24,7 +25,7 @@ function getAnimeList(parameter){
             for(var i in result){
                 eachAnimeDetails += `
                 <tr>
-                    <td><img src="${result[i].image}" height="200" weight="140"></td>
+                    <td><img referrer="no-referrer|origin|unsafe-url" src="${result[i].image}" height="200" weight="140"></td>
                     <td>${result[i].name}</td>
                     <td>${result[i].ji}</td>
                     <td>${result[i].year}</td>
@@ -50,6 +51,7 @@ function more(index){
         if(data.data.code == '0'){
             let animeData = data.data.data;
             document.getElementById('animeImg').setAttribute('src',animeData.image);
+            document.getElementById('animeImg').setAttribute('referrer','no-referrer|origin|unsafe-url');
             document.getElementById('animeName').innerText = animeData.name;
             document.getElementById('country').innerText = animeData.country;
             document.getElementById('year').innerText = animeData.year;
