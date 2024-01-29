@@ -3,7 +3,7 @@ function getInput(){
     getAnimeList(parameter);
 };
 
-function getSongList(parameter){
+function getAnimeList(parameter){
     axios.get('/adpro/xingzhige/API/anime/?msg=' + parameter).then(function(data){
         if(data.data.code == '0'){
             var result = data.data.data;
