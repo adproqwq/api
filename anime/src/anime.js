@@ -46,7 +46,7 @@ function getAnimeList(parameter){
 };
 
 function more(index){
-    window.open('../more.html');
+    window.open('./more.html');
     axios.get('/adpro/xingzhige/API/anime/?msg=' + document.getElementById('name').value + '&n=' + index).then(function(data){
         if(data.data.code == '0'){
             let animeData = data.data.data;
