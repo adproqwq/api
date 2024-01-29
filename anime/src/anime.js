@@ -62,12 +62,12 @@ function more(){
             let episodeList = document.getElementById('episodeList');
             for(let i in animeData.playlist){
                 let episodeBtn = document.createElement('button');
-                episodeBtn.setAttribute('name',`episode${String(Number(i) + 1)}`);
+                episodeBtn.setAttribute('id',`episode${String(Number(i) + 1)}`);
                 episodeBtn.setAttribute('class','btn btn1');
                 episodeBtn.setAttribute('type','button');
                 episodeBtn.setAttribute('onclick',`play(${Number(i) + 1},${index});`);
                 episodeList.appendChild(episodeBtn);
-                document.getElementsByName(`episode${String(Number(i) + 1)}`).textContent = animeData.playlist[i];
+                document.getElementsById(`episode${String(Number(i) + 1)}`).textContent = animeData.playlist[i];
             }
         }
     });
