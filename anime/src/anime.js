@@ -67,7 +67,7 @@ function more(){
                 episodeBtn.setAttribute('type','button');
                 episodeBtn.setAttribute('onclick',`play(${Number(i) + 1},${index});`);
                 episodeList.appendChild(episodeBtn);
-                document.getElementsById(`episode${String(Number(i) + 1)}`).textContent = animeData.playlist[i];
+                document.getElementById(`episode${String(Number(i) + 1)}`).textContent = animeData.playlist[i];
             }
         }
     });
