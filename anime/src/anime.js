@@ -1,10 +1,13 @@
 function getInput(){
-    var parameter = document.getElementById('name').value;
-    getAnimeList(parameter);
+    let parameter = document.getElementById('name').value;
+    let userselect = document.getElementById("searchLine");
+    let index = userselect.selectedIndex;
+    let line = userselect.options[index].value;
+    getAnimeList(parameter,line);
 };
 
-function getAnimeList(parameter){
-    axios.get('/adpro/xingzhige/API/anime/?msg=' + parameter).then(function(data){
+function getAnimeList(parameter, line){
+    axios.get(`/adpro/xingzhige/API/anime/?msg=${parameter}&type=${line}`).then(function(data){
         if(data.data.code == '0'){
             var result = data.data.data;
             initTable = `
@@ -39,6 +42,7 @@ function getAnimeList(parameter){
                     var index = String(Number(e.target.getAttribute('index')) + 1);
                     localStorage.setItem('name',parameter);
                     localStorage.setItem('index',index);
+                    localStorage.setItem('line',line);
                     window.open('./anime/more.html');
                 }
             });
@@ -50,7 +54,8 @@ function getAnimeList(parameter){
 function more(){
     let name = localStorage.getItem('name');
     let index = localStorage.getItem('index');
-    axios.get(`/adpro/xingzhige/API/anime/?msg=${name}&n=${index}`).then(function(data){
+    let line = localStorage.getItem('line');
+    axios.get(`/adpro/xingzhige/API/anime/?msg=${name}&n=${index}&type=${line}`).then(function(data){
         if(data.data.code == '0'){
             let animeData = data.data.data;
             document.getElementById('animeImg').setAttribute('src',`https://images.weserv.nl/?url=${animeData.image}`);
@@ -65,7 +70,7 @@ function more(){
                 episodeBtn.setAttribute('id',`episode${String(Number(i) + 1)}`);
                 episodeBtn.setAttribute('class','btn btn1');
                 episodeBtn.setAttribute('type','button');
-                episodeBtn.setAttribute('onclick',`play(${Number(i) + 1},${index});`);
+                episodeBtn.setAttribute('onclick',`play(${Number(i) + 1});`);
                 episodeList.appendChild(episodeBtn);
                 document.getElementById(`episode${String(Number(i) + 1)}`).textContent = animeData.playlist[i];
             }
@@ -73,10 +78,12 @@ function more(){
     });
 };
 
-function play(episode, animeCode){
+function play(episode){
     let playPage = window.open('','_blank');
     let name = localStorage.getItem('name');
-    axios.get(`/adpro/xingzhige/API/anime/?msg=${name}&n=${animeCode}&nn=${episode}`).then(function(data){
+    let index = localStorage.getItem('index');
+    let line = localStorage.getItem('line');
+    axios.get(`/adpro/xingzhige/API/anime/?msg=${name}&n=${index}&nn=${episode}&type=${line}`).then(function(data){
         if(data.data.code == '0'){
             let animeData = data.data.data;
             playPage.location = animeData.play_url;
