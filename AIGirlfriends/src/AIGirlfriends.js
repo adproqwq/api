@@ -1,4 +1,4 @@
-function getInput(){
+function getMsg(){
     let msg = document.getElementById('msg').value;
     let userselect = document.getElementById("personality");
     let index = userselect.selectedIndex;
