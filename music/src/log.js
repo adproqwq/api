@@ -21,30 +21,6 @@ function output(){
   URL.revokeObjectURL(logOutput);
 }
 
-document.getElementById('ok').addEventListener('click',()=>{
-  let log = JSON.parse(self.sessionStorage.getItem('log'));
-  let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
-  let searchKey = document.getElementById('name').value;
-  let successful = document.getElementById('songTable');
-  if(successful != null) successful = true;
-  else successful = false;
-  let logFormat = {
-    "time": time,
-    "do": "search",
-    "value": [
-      {
-        "searchKey": searchKey,
-        "downloadIndex": null,
-        "changeTarget": null,
-      }
-    ],
-    "successful": successful
-  };
-  let index = getJsonArrayLength(log);
-  log[index] = logFormat;
-  self.sessionStorage.setItem('log',JSON.stringify(log));
-});
-
 document.getElementsByName('download').addEventListener('click',(e)=>{
   let log = JSON.parse(self.sessionStorage.getItem('log'));
   let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();

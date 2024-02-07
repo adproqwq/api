@@ -10,7 +10,9 @@ function getInput() {
     let log = JSON.parse(self.sessionStorage.getItem('log'));
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
     let searchKey = document.getElementById('name').value;
-    let successful = document.getElementById('songTable');
+    let successful = setTimeout(1000,()=>{
+        return document.getElementById('songTable');
+    });
     if (successful != null) successful = true;
     else successful = false;
     let logFormat = {
