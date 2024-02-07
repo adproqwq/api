@@ -27,7 +27,7 @@ document.getElementById("searchTarget").addEventListener("change",function(e){
         };
         let arrayIndex = getJsonArrayLength(log);
         log[arrayIndex] = logFormat;
-        self.sessionStorage.setItem('log',log);
+        self.sessionStorage.setItem('log',JSON.stringify(log));
     };
 });
 

@@ -42,7 +42,7 @@ document.getElementById('ok').addEventListener('click',()=>{
   };
   let index = getJsonArrayLength(log);
   log[index] = logFormat;
-  self.sessionStorage.setItem('log',log);
+  self.sessionStorage.setItem('log',JSON.stringify(log));
 });
 
 document.getElementsByName('download').addEventListener('click',(e)=>{
@@ -63,5 +63,5 @@ document.getElementsByName('download').addEventListener('click',(e)=>{
   };
   let index = getJsonArrayLength(log);
   log[index] = logFormat;
-  self.sessionStorage.setItem('log',log);
+  self.sessionStorage.setItem('log',JSON.stringify(log));
 });
