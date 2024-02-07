@@ -18,7 +18,10 @@
             <input id="name" placeholder="请输入歌名或歌手名">
         </div>
         <div>
-            <button type="submit" class="btn boom" onclick="getInput();">确定</button>
+            <button id="ok" type="submit" class="btn btn1" onclick="getInput();">确定</button>
+        </div>
+        <div>
+            <button id="log" type="button" class="btn btn1" onclick="output();">导出日志</button>
         </div>
         <div id="songList"></div>
         <div id="copyright-box">
@@ -33,6 +36,8 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.9/dayjs.min.js"></script>
+        <script src=".music/src/log.js"></script>
         <script id="changeTarget" src="./music/src/changeTarget.js"></script>
     </body>
 </html>
