@@ -1,18 +1,17 @@
-let log = [];
-
-function getJsonArrayLength(jsonArray){
-  let length = 0;
-  for(let i in jsonArray){
-    length++;
-  }
-  return length;
+function getJsonArrayLength(jsonArray) {
+    let length = 0;
+    for (let i in jsonArray) {
+        length++;
+    }
+    return length;
 };
 
-function getInput(){
+function getInput() {
+    let log = [];
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
     let searchKey = document.getElementById('name').value;
     let successful = document.getElementById('songTable');
-    if(successful != null) successful = true;
+    if (successful != null) successful = true;
     else successful = false;
     let logFormat = {
         "time": time,
@@ -28,7 +27,7 @@ function getInput(){
     };
     let index = getJsonArrayLength(log);
     log[index] = logFormat;
-    self.sessionStorage.setItem('log',JSON.stringify(log));
+    self.sessionStorage.setItem('log', JSON.stringify(log));
     getSongList(searchKey);
 };
 

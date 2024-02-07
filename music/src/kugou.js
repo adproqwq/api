@@ -1,18 +1,17 @@
-let log = [];
-
-function getJsonArrayLength(jsonArray){
-  let length = 0;
-  for(let i in jsonArray){
-    length++;
-  }
-  return length;
+function getJsonArrayLength(jsonArray) {
+    let length = 0;
+    for (let i in jsonArray) {
+        length++;
+    }
+    return length;
 };
 
-function getInput(){
+function getInput() {
+    let log = [];
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
     let searchKey = document.getElementById('name').value;
     let successful = document.getElementById('songTable');
-    if(successful != null) successful = true;
+    if (successful != null) successful = true;
     else successful = false;
     let logFormat = {
         "time": time,
@@ -28,16 +27,16 @@ function getInput(){
     };
     let index = getJsonArrayLength(log);
     log[index] = logFormat;
-    self.sessionStorage.setItem('log',JSON.stringify(log));
+    self.sessionStorage.setItem('log', JSON.stringify(log));
     getSongList(searchKey);
 };
 
-function getSongList(parameter){
+function getSongList(parameter) {
     axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + parameter)
-    .then(function(data){
-        if(data.data.code == '0'){
-            var songData = data.data.data;
-            initTable = `
+        .then(function (data) {
+            if (data.data.code == '0') {
+                var songData = data.data.data;
+                initTable = `
             <table id="songTable" border="1">
                 <thead>
                     <tr>
@@ -50,10 +49,10 @@ function getSongList(parameter){
                 </thead>
                 <tbody></tbody>
             </table>`;
-            document.getElementById('songList').innerHTML = initTable;
-            var eachSongDetails = '';
-            for(var i in songData){
-                eachSongDetails += `
+                document.getElementById('songList').innerHTML = initTable;
+                var eachSongDetails = '';
+                for (var i in songData) {
+                    eachSongDetails += `
                 <tr>
                     <td><img src="${songData[i].cover}" height="100" weight="100"></td>
                     <td>${songData[i].name}</td>
@@ -61,28 +60,28 @@ function getSongList(parameter){
                     <td>${songData[i].songname}</td>
                     <td><button name='download' index=${String(i)}>下载</button></td>
                 </tr>`;
-            };
-            var songList = document.querySelector('tbody');
-            songList.innerHTML = eachSongDetails;
-            songList.addEventListener('click',function(e){
-                if(e.target.getAttribute('name') == 'download'){
-                    var index = String(Number(e.target.getAttribute('index')) + 1);
-                    download(index);
-                }
-            });
-        }
-        else alert('搜索失败，换个关键词试试');
-    });
+                };
+                var songList = document.querySelector('tbody');
+                songList.innerHTML = eachSongDetails;
+                songList.addEventListener('click', function (e) {
+                    if (e.target.getAttribute('name') == 'download') {
+                        var index = String(Number(e.target.getAttribute('index')) + 1);
+                        download(index);
+                    }
+                });
+            }
+            else alert('搜索失败，换个关键词试试');
+        });
 };
 
-function download(index){
-    let downloadPage = window.open('','_blank');
+function download(index) {
+    let downloadPage = window.open('', '_blank');
     axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + document.getElementById('name').value + '&n=' + index)
-    .then(function(data){
-        if(data.data.code == '0'){
-            var songData = data.data.data;
-            downloadPage.location = songData.src;
-        }
-        else downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
-    });
+        .then(function (data) {
+            if (data.data.code == '0') {
+                var songData = data.data.data;
+                downloadPage.location = songData.src;
+            }
+            else downloadPage.alert('该歌曲出于各种原因下载失败，换一首试试吧');
+        });
 };
