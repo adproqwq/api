@@ -1,4 +1,4 @@
-self.sessionStorage.setItem('log','');
+self.localStorage.setItem('log','');
 
 function getJsonArrayLength(jsonArray){
   let length = 0;
@@ -9,7 +9,7 @@ function getJsonArrayLength(jsonArray){
 };
 
 function output(){
-  let log = self.sessionStorage.getItem('log');
+  let log = self.localStorage.getItem('log');
   let blob = new Blob([log],{
     type: 'application/json'
   });

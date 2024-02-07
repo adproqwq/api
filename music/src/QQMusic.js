@@ -7,7 +7,7 @@ function getJsonArrayLength(jsonArray) {
 };
 
 function getInput() {
-    let log = JSON.parse(self.sessionStorage.getItem('log'));
+    let log = JSON.parse(self.localStorage.getItem('log'));
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
     let searchKey = document.getElementById('name').value;
     let successful = setTimeout(1000, () => {
@@ -29,7 +29,7 @@ function getInput() {
     };
     let index = getJsonArrayLength(log);
     log[index] = logFormat;
-    self.sessionStorage.setItem('log', JSON.stringify(log));
+    self.localStorage.setItem('log', JSON.stringify(log));
     getSongList(searchKey);
 };
 
@@ -82,7 +82,7 @@ function getSongList(parameter) {
 };
 
 function download(index) {
-    let log = JSON.parse(self.sessionStorage.getItem('log'));
+    let log = JSON.parse(self.localStorage.getItem('log'));
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
     let searchKey = document.getElementById('name').value;
     let downloadIndex = Number(index) - 1;
@@ -100,8 +100,8 @@ function download(index) {
     };
     let arrayIndex = getJsonArrayLength(log);
     log[arrayIndex] = logFormat;
-    self.sessionStorage.setItem('log', JSON.stringify(log));
-    
+    self.localStorage.setItem('log', JSON.stringify(log));
+
     let downloadPage = window.open('', '_blank');
     axios.get('/adpro/oi/API/QQ_Music/?msg=' + document.getElementById('name').value + '&n=' + index)
         .then(function (data) {
