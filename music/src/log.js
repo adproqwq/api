@@ -20,29 +20,3 @@ function output(){
   aTag.click();
   URL.revokeObjectURL(logOutput);
 }
-
-document.querySelector('tbody').addEventListener('click',(e)=>{
-  let log = JSON.parse(self.sessionStorage.getItem('log'));
-  let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
-  let searchKey = document.getElementById('name').value;
-  let downloadIndex = (a=e)=>{
-    if(a.target.getAttribute('name') == 'download'){
-      return a.target.getAttribute('index');
-    }
-  };
-  let logFormat = {
-    "time": time,
-    "do": "download",
-    "value": [
-      {
-        "searchKey": searchKey,
-        "downloadIndex": downloadIndex,
-        "changeTarget": null
-      }
-    ],
-    "successful": true,
-  };
-  let index = getJsonArrayLength(log);
-  log[index] = logFormat;
-  self.sessionStorage.setItem('log',JSON.stringify(log));
-});

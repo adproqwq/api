@@ -77,6 +77,26 @@ function getSongList(parameter) {
 };
 
 function download(index) {
+    let log = JSON.parse(self.sessionStorage.getItem('log'));
+    let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
+    let searchKey = document.getElementById('name').value;
+    let downloadIndex = Number(index) - 1;
+    let logFormat = {
+        "time": time,
+        "do": "download",
+        "value": [
+            {
+                "searchKey": searchKey,
+                "downloadIndex": downloadIndex,
+                "changeTarget": null
+            }
+        ],
+        "successful": true,
+    };
+    let arrayIndex = getJsonArrayLength(log);
+    log[arrayIndex] = logFormat;
+    self.sessionStorage.setItem('log', JSON.stringify(log));
+    
     let downloadPage = window.open('', '_blank');
     axios.get('/adpro/xingzhige/API/Kugou_GN_new/?name=' + document.getElementById('name').value + '&n=' + index)
         .then(function (data) {
