@@ -7,7 +7,7 @@ function getJsonArrayLength(jsonArray) {
 };
 
 function getInput() {
-    let log = [];
+    let log = self.sessionStorage.getItem('log');
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
     let searchKey = document.getElementById('name').value;
     let successful = document.getElementById('songTable');

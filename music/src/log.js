@@ -1,5 +1,4 @@
 self.sessionStorage.setItem('log','');
-let log = [];
 
 function getJsonArrayLength(jsonArray){
   let length = 0;
@@ -23,6 +22,7 @@ function output(){
 }
 
 document.getElementById('ok').addEventListener('click',()=>{
+  let log = self.sessionStorage.getItem('log');
   let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
   let searchKey = document.getElementById('name').value;
   let successful = document.getElementById('songTable');
@@ -46,6 +46,7 @@ document.getElementById('ok').addEventListener('click',()=>{
 });
 
 document.getElementsByName('download').addEventListener('click',(e)=>{
+  let log = self.sessionStorage.getItem('log');
   let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
   let searchKey = document.getElementById('name').value;
   let downloadIndex = e.target.index;
