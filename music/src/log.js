@@ -10,7 +10,7 @@ function getJsonArrayLength(jsonArray){
 
 function output(){
   let log = self.sessionStorage.getItem('log');
-  let blob = new Blob([JSON.stringify(log)],{
+  let blob = new Blob([log],{
     type: 'application/json'
   });
   const logOutput = URL.createObjectURL(blob);
@@ -22,7 +22,7 @@ function output(){
 }
 
 document.getElementById('ok').addEventListener('click',()=>{
-  let log = self.sessionStorage.getItem('log');
+  let log = JSON.parse(self.sessionStorage.getItem('log'));
   let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
   let searchKey = document.getElementById('name').value;
   let successful = document.getElementById('songTable');
@@ -46,7 +46,7 @@ document.getElementById('ok').addEventListener('click',()=>{
 });
 
 document.getElementsByName('download').addEventListener('click',(e)=>{
-  let log = self.sessionStorage.getItem('log');
+  let log = JSON.parse(self.sessionStorage.getItem('log'));
   let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
   let searchKey = document.getElementById('name').value;
   let downloadIndex = e.target.index;
