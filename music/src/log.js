@@ -21,11 +21,15 @@ function output(){
   URL.revokeObjectURL(logOutput);
 }
 
-document.getElementsByName('download').addEventListener('click',(e)=>{
+document.querySelector('tbody').addEventListener('click',(e)=>{
   let log = JSON.parse(self.sessionStorage.getItem('log'));
   let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
   let searchKey = document.getElementById('name').value;
-  let downloadIndex = e.target.index;
+  let downloadIndex = (a=e)=>{
+    if(a.target.getAttribute('name') == 'download'){
+      return a.target.getAttribute('index');
+    }
+  };
   let logFormat = {
     "time": time,
     "do": "download",
