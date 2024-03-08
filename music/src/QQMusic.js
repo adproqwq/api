@@ -11,7 +11,7 @@ function getJsonArrayLength(jsonArray) {
 form.on('input-affix(name)', function(data){
     let log = JSON.parse(self.localStorage.getItem('log'));
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
-    let searchKey = data.value;
+    let searchKey = data.elem.value;
     let successful = setTimeout(1000, () => {
         return document.getElementById('songTable');
     });
