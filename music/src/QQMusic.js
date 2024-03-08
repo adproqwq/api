@@ -1,5 +1,3 @@
-const form = layui.form;
-
 function getJsonArrayLength(jsonArray) {
     let length = 0;
     for (let i in jsonArray) {
@@ -8,10 +6,10 @@ function getJsonArrayLength(jsonArray) {
     return length;
 };
 
-form.on('input-affix(name)', function(data){
+function getInput() {
     let log = JSON.parse(self.localStorage.getItem('log'));
     let time = dayjs().format('MMDDHHmmss') + dayjs().millisecond();
-    let searchKey = data.elem.value;
+    let searchKey = document.getElementById('name').value;
     let successful = setTimeout(1000, () => {
         return document.getElementById('songTable');
     });
@@ -33,7 +31,7 @@ form.on('input-affix(name)', function(data){
     log[index] = logFormat;
     self.localStorage.setItem('log', JSON.stringify(log));
     getSongList(searchKey);
-});
+};
 
 function getSongList(parameter) {
     axios.get('/adpro/oi/API/QQ_Music/?msg=' + parameter)
