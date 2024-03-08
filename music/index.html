@@ -15,12 +15,15 @@
             <option value="netease">小云</option>
             <option value="kugou">小狗</option>
         </select>
-        <div>
-            <input id="name" placeholder="请输入歌名或歌手名">
-        </div>
-        <div>
-            <button id="ok" type="submit" class="btn btn1" onclick="getInput();">确定</button>
-        </div>
+        <div class="layui-input-group">
+            <div class="layui-input-prefix">
+              搜索
+            </div>
+            <input type="text" id="name" lay-filter="name" placeholder="输入歌手或歌名" class="layui-input">
+            <div class="layui-input-split layui-input-suffix" style="cursor: pointer;">
+              <i class="layui-icon layui-icon-search"></i>
+            </div>
+          </div>
         <div>
             <button id="log" type="button" class="btn btn1" onclick="output();">导出日志</button>
         </div>
@@ -47,6 +50,9 @@
               flow.lazyimg({
                 elem: '#songPic',
               });
+            });
+            form.on('input-affix(name)', function(data){
+                getInput();
             });
         </script>
     </body>
