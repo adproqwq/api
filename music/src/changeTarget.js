@@ -8,7 +8,7 @@ layui.use(function(){
             document.body.removeChild(document.getElementById(value));
         }
         var newScript = document.createElement('script');
-        newScript.id = userselect.options[index].value;
+        newScript.id = value;
         newScript.src = './music/src/' + value + '.js';
         document.body.appendChild(newScript);
 
