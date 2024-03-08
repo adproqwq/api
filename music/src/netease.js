@@ -39,7 +39,7 @@ function getSongList(parameter){
         if(data.data.code == '0'){
             var songData = data.data.data;
             initTable = `
-            <table id="songTable" border="1">
+            <table id="songTable" class="layui-table">
                 <thead>
                     <tr>
                         <th>封面图</th>
