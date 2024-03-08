@@ -1,13 +1,15 @@
-document.getElementById("searchTarget").addEventListener("change",function(e){
-    if(e.target.tagName == "SELECT"){
-        var userselect = document.getElementById("searchTarget");
-        var index = userselect.selectedIndex;
-        if(document.getElementById(userselect.options[index].value)){
-            document.body.removeChild(document.getElementById(userselect.options[index].value));
+const form = layui.form;
+const layer = layui.layer;
+
+layui.use(function(){
+    form.on('select(searchTarget)', function(data){
+        let value = data.value; // 获得被选中的值
+        if(document.getElementById(value)){
+            document.body.removeChild(document.getElementById(value));
         }
         var newScript = document.createElement('script');
         newScript.id = userselect.options[index].value;
-        newScript.src = './music/src/' + userselect.options[index].value + '.js';
+        newScript.src = './music/src/' + value + '.js';
         document.body.appendChild(newScript);
 
         let log = [];
@@ -20,7 +22,7 @@ document.getElementById("searchTarget").addEventListener("change",function(e){
             {
                 "searchKey": searchKey,
                 "downloadIndex": null,
-                "changeTarget": userselect.options[index].value
+                "changeTarget": value
             }
             ],
             "successful": true,
@@ -28,8 +30,8 @@ document.getElementById("searchTarget").addEventListener("change",function(e){
         let arrayIndex = getJsonArrayLength(log);
         log[arrayIndex] = logFormat;
         self.localStorage.setItem('log',JSON.stringify(log));
-    };
-});
+    });
+  });
 
 function getJsonArrayLength(jsonArray){
     let length = 0;
