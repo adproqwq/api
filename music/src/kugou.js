@@ -30,6 +30,7 @@ function getInput() {
     let index = getJsonArrayLength(log);
     log[index] = logFormat;
     self.localStorage.setItem('log', JSON.stringify(log));
+    layer.msg('正在搜索',{icon: 0});
     getSongList(searchKey);
 };
 
