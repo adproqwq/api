@@ -19,7 +19,7 @@
             <div class="layui-input-prefix">
               搜索
             </div>
-            <input type="text" id="name" lay-filter="name" placeholder="输入歌手或歌名" class="layui-input">
+            <input type="text" lay-filter="name" placeholder="输入歌手或歌名" class="layui-input">
             <div class="layui-input-split layui-input-suffix" style="cursor: pointer;">
               <i class="layui-icon layui-icon-search"></i>
             </div>
@@ -46,14 +46,10 @@
         <script id="changeTarget" src="./music/src/changeTarget.js"></script>
         <script>
             const flow = layui.flow;
-            const form = layui.form;
             layui.use('flow', function(){
               flow.lazyimg({
                 elem: '#songPic',
               });
-            });
-            form.on('input-affix(name)', function(data){
-                getInput();
             });
         </script>
     </body>
