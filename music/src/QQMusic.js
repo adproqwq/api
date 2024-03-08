@@ -65,7 +65,7 @@ function getSongList(parameter) {
                     <td>${songSingers}</td>
                     <td>${songData[i].album}</td>
                     <td>${songData[i].song}</td>
-                    <td><button name='download' index=${String(i)}>下载</button></td>
+                    <td><button name="download" class="layui-btn layui-btn-primary layui-border-green" index=${String(i)}>下载</button></td>
                 </tr>`;
                 };
                 var songList = document.querySelector('tbody');
