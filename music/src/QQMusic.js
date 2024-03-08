@@ -1,5 +1,3 @@
-const layer = layui.layer;
-
 function getJsonArrayLength(jsonArray) {
     let length = 0;
     for (let i in jsonArray) {
