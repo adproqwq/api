@@ -56,7 +56,7 @@ function getSongList(parameter){
             for(var i in songData){
                 eachSongDetails += `
                 <tr>
-                    <td><img id="songPic" src="${songData[i].cover}" height="100" weight="100"></td>
+                    <td><img id="songPic" class="flow-demo-lazyimg" src="${songData[i].cover}" height="100" weight="100"></td>
                     <td>${songData[i].name}</td>
                     <td>${songData[i].album}</td>
                     <td>${songData[i].songname}</td>
