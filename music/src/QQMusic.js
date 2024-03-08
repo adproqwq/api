@@ -61,7 +61,7 @@ function getSongList(parameter) {
                     }
                     eachSongDetails += `
                 <tr>
-                    <td><img src="${songData[i].picture}" height="100" weight="100"></td>
+                    <td><img id="songPic" src="${songData[i].picture}" height="100" weight="100"></td>
                     <td>${songSingers}</td>
                     <td>${songData[i].album}</td>
                     <td>${songData[i].song}</td>
