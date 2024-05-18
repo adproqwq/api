@@ -1,3 +1,5 @@
+alert('由于上游API备案注销，需要20-35天重新注册，在此期间QQ音乐暂不能用，请换用其它。恢复后会删除该提示。谢谢配合！');
+
 function getJsonArrayLength(jsonArray) {
     let length = 0;
     for (let i in jsonArray) {
