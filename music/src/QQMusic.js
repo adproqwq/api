@@ -1,4 +1,4 @@
-alert('由于上游API备案注销，需要20-35天重新注册，在此期间QQ音乐暂不能用，请换用其它。恢复后会删除该提示。谢谢配合！');
+alert('因QQ音乐对非加密请求做了限制，QQ音乐基本寄了，目前还勉强能用。等待上游API抢救');
 
 function getJsonArrayLength(jsonArray) {
     let length = 0;
@@ -47,7 +47,6 @@ function getSongList(parameter) {
                     <tr>
                         <th>封面图</th>
                         <th>歌手</th>
-                        <th>专辑</th>
                         <th>歌名</th>
                         <th>操作</th>
                     </tr>
@@ -59,17 +58,16 @@ function getSongList(parameter) {
                 for (var i in songData) {
                     var songSingers;
                     songSingers = '';
-                    for (var j in songData[i].singers) {
-                        songSingers += songData[i].singers[j] + '，';
+                    for (var j in songData[i].singer) {
+                        songSingers += songData[i].singer[j] + '，';
                     }
                     eachSongDetails += `
-                <tr>
-                    <td><img id="songPic" class="flow-demo-lazyimg" src="${songData[i].picture}" height="100" weight="100"></td>
-                    <td>${songSingers}</td>
-                    <td>${songData[i].album}</td>
-                    <td>${songData[i].song}</td>
-                    <td><button name="download" class="layui-btn layui-btn-primary layui-border-green" index=${String(i)}>下载</button></td>
-                </tr>`;
+                    <tr>
+                        <td><img id="songPic" class="flow-demo-lazyimg" src="${songData[i].picture}" height="100" weight="100"></td>
+                        <td>${songSingers}</td>
+                        <td>${songData[i].song}</td>
+                        <td><button name="download" class="layui-btn layui-btn-primary layui-border-green" index=${String(i)}>下载</button></td>
+                    </tr>`;
                 };
                 var songList = document.querySelector('tbody');
                 songList.innerHTML = eachSongDetails;
