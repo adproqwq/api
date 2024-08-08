@@ -7,17 +7,25 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
+      meta: {
+        title: '这是一个彩蛋',
+      },
       component: HomeView,
     },
     {
       path: '/music',
       name: 'music',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
+      meta: {
+        title: '音乐搜索',
+      },
       component: () => import('../views/MusicView.vue'),
     },
   ],
+});
+
+router.beforeEach((to, _, next) => {
+  if(to.meta.title) document.title = to.meta.title as string;
+  next();
 });
 
 export default router;
