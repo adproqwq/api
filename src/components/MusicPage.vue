@@ -4,6 +4,7 @@ import { defineComponent } from 'vue';
 import { type TextField, prompt, setColorScheme, removeColorScheme } from 'mdui';
 import '@/assets/music.css';
 import '@mdui/icons/search';
+import '@mdui/icons/palette--outlined';
 
 export default defineComponent({
   methods: {
