@@ -1,11 +1,9 @@
 .list {
   display: block;
-  text-align: center;
 }
 .list > * {
-  display: inherit;
-  width: 20%;
+  min-width: 20%;
 }
 .list > img {
-  object-fit: none;
+  object-fit: contain;
 }
