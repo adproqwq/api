@@ -52,7 +52,9 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     dlButton.onclick = async (e) => {
       const index = (e.target as Button).getAttribute('data-index')!;
       const responce: IQQSongData | INetEaseSongData = await (await fetch(`${url}&n=${index}`)).json();
-      window.open(responce.data.src);
+
+      const dlWindow = window.open('', '_blank');
+      dlWindow!.location.href = responce.data.src;
     };
 
     dlButtonDiv.appendChild(dlButton);
