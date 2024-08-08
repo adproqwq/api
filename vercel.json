@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/adpro/(.*)",
-      "destination": "http/proxy"
+      "destination": "/http/proxy"
     }
   ]
 }
