@@ -2,6 +2,7 @@
 import search from '@/utils/music/search';
 import { defineComponent } from 'vue';
 import type { TextField } from 'mdui';
+import '@/assets/music.css';
 
 export default defineComponent({
   methods: {

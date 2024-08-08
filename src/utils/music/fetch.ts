@@ -5,13 +5,13 @@ const basicUrl = 'https://api.xingzhige.com';
 
 const QQ = async (target: string) => {
   const apiUrl = `${basicUrl}/API/QQmusicVIP/`;
-  const responce: IQQResultData = await (await fetch(`${apiUrl}?name=${target}`)).json();
+  const responce: IQQResultData = await (await fetch(`${apiUrl}?max=20&name=${target}`)).json();
   renderer(`${apiUrl}?name=${target}`, responce);
 };
 
 const NetEase = async (target: string) => {
   const apiUrl = `${basicUrl}/API/NetEase_CloudMusic_new/`;
-  const responce: INetEaseResultData = await (await fetch(`${apiUrl}?name=${target}`)).json();
+  const responce: INetEaseResultData = await (await fetch(`${apiUrl}?pagesize=20&name=${target}`)).json();
   renderer(`${apiUrl}?name=${target}`, responce);
 };
 

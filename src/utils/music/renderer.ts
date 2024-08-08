@@ -33,7 +33,7 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     };
 
     div.slot = 'custom';
-    div.style.display = 'flex';
+    div.classList.add('list');
     div.appendChild(cover);
     div.appendChild(songName);
     div.appendChild(singers);

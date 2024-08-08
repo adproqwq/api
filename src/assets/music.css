@@ -1,0 +1,6 @@
+.list {
+  display: block;
+}
+.list > * {
+  width: 20%;
+}
