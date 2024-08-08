@@ -32,12 +32,12 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     singers.textContent = result.name;
 
     singersDiv.appendChild(singers);
-    songNameDiv.classList.add('list-item-div');
+    singersDiv.classList.add('list-item-div');
 
     album.textContent = result.album;
 
     albumDiv.appendChild(album);
-    songNameDiv.classList.add('list-item-div');
+    albumDiv.classList.add('list-item-div');
 
     dlButton.textContent = '下载';
     dlButton.variant = 'tonal';
