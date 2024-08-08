@@ -16,6 +16,7 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     const album = document.createElement('span');
     const albumDiv = document.createElement('div');
     const dlButton = document.createElement('mdui-button');
+    const dlButtonDiv = document.createElement('div');
     const divider = document.createElement('mdui-divider');
 
     cover.src = result.cover;
@@ -23,7 +24,7 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     cover.width = 50;
 
     coverDiv.appendChild(cover);
-    coverDiv.classList.add('list-img');
+    coverDiv.classList.add('list-item-img');
 
     songName.textContent = result.songname;
 
@@ -48,6 +49,9 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
       const responce: IQQSongData | INetEaseSongData = await (await fetch(`${url}&n=${index}`)).json();
       window.open(responce.data.src);
     };
+
+    dlButtonDiv.appendChild(dlButton);
+    dlButtonDiv.classList.add('list-item-btn');
 
     div.slot = 'custom';
     div.classList.add('list');
