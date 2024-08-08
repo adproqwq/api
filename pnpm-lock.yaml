@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@mdui/icons':
-        specifier: ^1.0.2
-        version: 1.0.2
       http-proxy-middleware:
         specifier: ^3.0.0
         version: 3.0.0
@@ -382,9 +379,6 @@ packages:
 
   '@material/material-color-utilities@0.3.0':
     resolution: {integrity: sha512-ztmtTd6xwnuh2/xu+Vb01btgV8SQWYCaK56CkRK8gEkWe5TuDyBcYJ0wgkMRn+2VcE9KUmhvkz+N9GHrqw/C0g==}
-
-  '@mdui/icons@1.0.2':
-    resolution: {integrity: sha512-2Ffhka9dbJIq0wQo+daUjG2CGLRStRE4ngf3Me8PVurQCQEd4QI2Qb9nblACOFoK0/ZYy+u77uYM9yuoDSvxXA==}
 
   '@mdui/jq@3.0.2':
     resolution: {integrity: sha512-Er6cvAgW4RrjWrMBJDnajIiPD99EPYmAWyIgQURhUtO2V1NQQ80oLDo9ILllMoj1idsi1G4EQEqOEdinlH85DQ==}
@@ -1464,12 +1458,6 @@ snapshots:
       '@lit-labs/ssr-dom-shim': 1.2.1
 
   '@material/material-color-utilities@0.3.0': {}
-
-  '@mdui/icons@1.0.2':
-    dependencies:
-      '@mdui/shared': 1.0.6
-      lit: 3.2.0
-      tslib: 2.6.3
 
   '@mdui/jq@3.0.2':
     dependencies:

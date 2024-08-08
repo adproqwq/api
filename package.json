@@ -9,7 +9,6 @@
     "build": "vue-tsc --build --force & vite build"
   },
   "dependencies": {
-    "@mdui/icons": "^1.0.2",
     "http-proxy-middleware": "^3.0.0",
     "mdui": "^2.1.2",
     "vue": "^3.4.29",
