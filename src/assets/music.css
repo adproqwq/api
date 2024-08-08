@@ -1,10 +1,9 @@
 .list {
-  display: block;
+  display: flex;
 }
 .list > .list-item-div {
   min-width: 10%;
   max-width: 20%;
-  overflow: scroll;
 }
 .list > .list-img {
   object-fit: contain;
