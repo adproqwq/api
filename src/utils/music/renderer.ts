@@ -2,6 +2,11 @@ import type { IQQResultData, IQQSongData, INetEaseResultData, INetEaseSongData }
 import type { Button } from 'mdui';
 
 export default (url: string, results: IQQResultData | INetEaseResultData) => {
+  const searchResultsDiv = (document.querySelector('#searchResults') as HTMLDivElement);
+  searchResultsDiv.childNodes.forEach((node) => {
+    searchResultsDiv.removeChild(node);
+  });
+
   const list = document.createElement('mdui-list');
 
   results.data.forEach((result, index) => {
