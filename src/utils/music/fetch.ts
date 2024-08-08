@@ -1,7 +1,7 @@
 import renderer from './renderer';
 import type { IQQResultData, INetEaseResultData } from './types';
 
-const basicUrl = '/adpro/xingzhige';
+const basicUrl = 'https://api.xingzhige.com';
 
 const QQ = async (target: string) => {
   const apiUrl = `${basicUrl}/API/QQmusicVIP/`;
