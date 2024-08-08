@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 import MusicPage from '@/components/MusicPage.vue';
 </script>
 
