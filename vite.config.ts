@@ -16,6 +16,12 @@ export default defineConfig({
       },
     }),
     vueDevTools(),
+    viteCp({
+      targets: [
+        { src: './http', dest: 'dist/http' },
+        { src: './vercel.json', dest: 'dist' },
+      ],
+    }),
   ],
   resolve: {
     alias: {
