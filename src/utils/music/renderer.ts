@@ -8,20 +8,36 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     const listItem = document.createElement('mdui-list-item');
     const div = document.createElement('div');
     const cover = document.createElement('img');
+    const coverDiv = document.createElement('div');
     const songName = document.createElement('span');
+    const songNameDiv = document.createElement('div');
     const singers = document.createElement('span');
+    const singersDiv = document.createElement('div');
     const album = document.createElement('span');
+    const albumDiv = document.createElement('div');
     const dlButton = document.createElement('mdui-button');
 
     cover.src = result.cover;
     cover.height = 50;
     cover.width = 50;
 
+    coverDiv.appendChild(cover);
+    coverDiv.classList.add('list-img');
+
     songName.textContent = result.songname;
+
+    songNameDiv.appendChild(songName);
+    songNameDiv.classList.add('list-item-div');
 
     singers.textContent = result.name;
 
+    singersDiv.appendChild(singers);
+    songNameDiv.classList.add('list-item-div');
+
     album.textContent = result.album;
+
+    albumDiv.appendChild(album);
+    songNameDiv.classList.add('list-item-div');
 
     dlButton.textContent = '下载';
     dlButton.variant = 'tonal';
@@ -34,10 +50,10 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
 
     div.slot = 'custom';
     div.classList.add('list');
-    div.appendChild(cover);
-    div.appendChild(songName);
-    div.appendChild(singers);
-    div.appendChild(album);
+    div.appendChild(coverDiv);
+    div.appendChild(songNameDiv);
+    div.appendChild(singersDiv);
+    div.appendChild(albumDiv);
     div.appendChild(dlButton);
 
     listItem.appendChild(div);

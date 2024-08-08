@@ -1,9 +1,11 @@
 .list {
   display: block;
 }
-.list > * {
+.list > .list-item-div {
   min-width: 20%;
+  max-width: 30%;
 }
-.list > img {
+.list > .list-img {
   object-fit: contain;
+  width: 15%;
 }

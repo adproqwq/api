@@ -22,7 +22,7 @@ export default defineComponent({
     </mdui-segmented-button-group>
   </div>
   <div>
-    <mdui-text-field id="searchBox" variant="filled" label="搜索" placeholder="请输入信息">
+    <mdui-text-field id="searchBox" variant="filled" label="搜索" placeholder="请输入信息" clearable>
       <mdui-button-icon slot="end-icon" icon="search" @click="search()"></mdui-button-icon>
     </mdui-text-field>
   </div>
