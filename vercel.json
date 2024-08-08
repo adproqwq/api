@@ -1,8 +1,8 @@
 {
-    "rewrites": [
-        {
-            "source": "/adpro/(.*)",
-            "destination": "src/api/proxy"
-        }
-    ]
+  "rewrites": [
+    {
+      "source": "/adpro/(.*)",
+      "destination": "http/proxy"
+    }
+  ]
 }

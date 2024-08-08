@@ -16,11 +16,6 @@ export default defineConfig({
       },
     }),
     vueDevTools(),
-    viteCp({
-      targets: [
-        { src: './src/api', dest: 'dist/src/api' },
-      ],
-    }),
   ],
   resolve: {
     alias: {
