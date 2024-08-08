@@ -2,10 +2,10 @@
   display: flex;
 }
 .list > .list-item-div {
-  min-width: 10%;
-  max-width: 20%;
+  min-width: 20%;
+  max-width: 25%;
 }
 .list > .list-img {
   object-fit: contain;
-  width: 15%;
+  width: 10%;
 }

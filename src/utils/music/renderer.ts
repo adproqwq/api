@@ -16,6 +16,7 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     const album = document.createElement('span');
     const albumDiv = document.createElement('div');
     const dlButton = document.createElement('mdui-button');
+    const divider = document.createElement('mdui-divider');
 
     cover.src = result.cover;
     cover.height = 50;
@@ -59,6 +60,7 @@ export default (url: string, results: IQQResultData | INetEaseResultData) => {
     listItem.appendChild(div);
 
     list.appendChild(listItem);
+    list.appendChild(divider);
   });
 
   (document.querySelector('#searchResults') as HTMLDivElement).appendChild(list);
